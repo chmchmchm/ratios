@@ -50,6 +50,7 @@
             const customRatioHeight = parseFloat(document.getElementById("customRatioHeight").value);
 
             let result = "";
+            let givenRatio;
 
             if (isNaN(input)) {
                 result = "Please enter a valid number for the input ratio.";
@@ -69,7 +70,7 @@
                     targetHeight = customRatioHeight;
                 }
 
-                const givenRatio = targetWidth / targetHeight;
+                givenRatio = targetWidth / targetHeight;
 
                 if (inputIsWidth) {
                     calculatedSide = input / givenRatio;
