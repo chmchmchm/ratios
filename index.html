@@ -43,7 +43,7 @@
 
         document.getElementById("calculateButton").addEventListener("click", function () {
             const input = parseFloat(document.getElementById("input").value);
-            const inputIsWidth = parseFloat(document.getElementById("inputIsWidth").checked);
+            const inputIsWidth = document.getElementById("inputIsWidth").checked;
             const customRatioWidth = parseFloat(document.getElementById("customRatioWidth").value);
             const customRatioHeight = parseFloat(document.getElementById("customRatioHeight").value);
 
@@ -67,9 +67,11 @@
                 const givenRatio = targetWidth / targetHeight;
 
                 if (inputIsWidth) {
+                    alert("input is width")
                     calculatedSide = input / givenRatio;
                     result = `Result: ${input} : ${calculatedSide}`;
                 } else {
+                    alert("input is height")
                     calculatedSide = givenRatio * input;
                     result = `Result: ${calculatedSide} : ${input}`;
                 }
