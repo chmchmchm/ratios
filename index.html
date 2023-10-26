@@ -7,8 +7,7 @@
     <h1>Aspect Ratio Calculator</h1>
 
     <div>
-        <label>Enter one side of the aspect ratio:</label>
-        <label for="input">Input:</label>
+        <label for="input">Enter one side of the aspect ratio:</label>
         <input type="number" id="input" placeholder="Enter a number">
         <label for="inputIsWidth">Width</label>
         <input type="radio" name="inputIs" id="inputIsWidth" value="Width" checked>
@@ -73,10 +72,10 @@
 
                 if (inputIsWidth) {
                     calculatedSide = input / givenRatio;
-                    result = `Result: ${input} : ${calculatedSide}. Ratio is ${givenRatio}`;
+                    result = `Result: ${input} : ${calculatedSide}`;
                 } else {
                     calculatedSide = givenRatio * input;
-                    result = `Result: ${calculatedSide} : ${input}. Ratio is ${givenRatio}`;
+                    result = `Result: ${calculatedSide} : ${input}`;
                 }
             }
 
