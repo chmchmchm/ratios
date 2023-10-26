@@ -85,11 +85,11 @@
 
             var canvas = document.getElementById("resultCanvas");
             var context = canvas.getContext("2d");
-            context.fillStzle = "blue";
+            context.fillStyle = "blue";
             if (givenRatio > 0) {
-                context.fillRect(50, 50, 100, 100/givenRatio)
+                context.fillRect(5, 5, 100, 100/givenRatio)
             } else {
-                context.fillRect(50, 50, 100/givenRatio, 100)
+                context.fillRect(5, 5, 100/givenRatio, 100)
             }
         });
     </script>
