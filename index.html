@@ -44,38 +44,35 @@
         document.getElementById("calculateButton").addEventListener("click", function () {
             const input = parseFloat(document.getElementById("input").value);
             const inputIsWidth = parseFloat(document.getElementById("inputIsWidth").checked);
-            const customRatioNumerator = parseFloat(document.getElementById("customRatioNumerator").value);
-            const customRatioDenominator = parseFloat(document.getElementById("customRatioDenominator").value);
+            const customRatioWidth = parseFloat(document.getElementById("customRatioWidth").value);
+            const customRatioHeight = parseFloat(document.getElementById("customRatioHeight").value);
 
             let result = "";
 
-            if (inputHeight > 0 && inputWidth > 0) {
-                result = "Please enter only height or width, not both."
-            } else {
-                if (isNaN(inputHeight)) {
-                    inputRatio = inputWidth;
-                } else {
-                    inputRatio = inputHeight;
-                }
-
-            if (isNaN(inputRatio)) {
+            if (isNaN(input)) {
                 result = "Please enter a valid number for the input ratio.";
-            } else if (document.getElementById("customRadio").checked && (isNaN(customRatioNumerator) || isNaN(customRatioDenominator))) {
-                result = "Please enter valid height and width for the custom ratio.";
+            } else if (document.getElementById("customRadio").checked && (isNaN(customRatioWidth) || isNaN(customRatioHeight))) {
+                result = "Please enter valid width and height for the custom ratio.";
             } else {
-                let numerator, denominator;
+                let targetWidth, targetHeight, calculatedSide;
 
                 if (document.getElementById("fourThreeRadio").checked) {
-                    numerator = 4;
-                    denominator = 3;
+                    targetWidth = 4;
+                    targetHeight = 3;
                 } else {
-                    numerator = customRatioNumerator;
-                    denominator = customRatioDenominator;
+                    targetWidth = customRatioWidth;
+                    targetHeight = customRatioHeight;
                 }
 
-                const calculatedRatio = (inputRatio * denominator) / numerator;
-                result = `Result: ${inputRatio} : ${calculatedRatio}`;
-            }
+                const givenRatio = width / height;
+
+                if (inputIsWidth) {
+                    calculatedSide = input / givenRatio;
+                    result = `Result: ${input} : ${calculatedSide}`;
+                } else {
+                    calculatedSide = givenRatio * input;
+                    result = `Result: ${calculatedSide} : ${input}`;
+                }
             }
 
             document.getElementById("result").textContent = result;
