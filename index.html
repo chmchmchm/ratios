@@ -85,6 +85,7 @@
 
             var canvas = document.getElementById("resultCanvas");
             var context = canvas.getContext("2d");
+            context.clearRect(0,0,200,200);
             context.fillStyle = "blue";
             if (givenRatio > 0) {
                 context.fillRect(5, 5, 100, 100/givenRatio)
