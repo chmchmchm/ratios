@@ -81,6 +81,15 @@
             }
 
             document.getElementById("result").textContent = result;
+
+            var canvas = document.getElementById("resultCanvas");
+            var context = canvas.getContext("2d");
+            context.fillStzle = "blue";
+            if (givenRatio > 0) {
+                context.fillRect(50, 50, 100, 100/givenRatio)
+            } else {
+                context.fillRect(50, 50, 100/givenRatio, 100)
+            }
         });
     </script>
 </body>
