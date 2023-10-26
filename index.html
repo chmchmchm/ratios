@@ -67,13 +67,11 @@
                 const givenRatio = targetWidth / targetHeight;
 
                 if (inputIsWidth) {
-                    alert("input is width")
                     calculatedSide = input / givenRatio;
-                    result = `input is width, gr is ${givenRatio}: ${input} : ${calculatedSide}`;
+                    result = `Result: ${input} : ${calculatedSide}. Ratio is ${givenRatio}`;
                 } else {
-                    alert("input is height")
                     calculatedSide = givenRatio * input;
-                    result = `input is height, gr is ${givenRatio}: ${calculatedSide} : ${input}`;
+                    result = `Result: ${calculatedSide} : ${input}. Ratio is ${givenRatio}`;
                 }
             }
 
