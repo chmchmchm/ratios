@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sara's Ratio Calculator</title>
+    <title>Sara's Aspect Ratio Calculator</title>
 </head>
 <body>
-    <h1>Ratio Calculator</h1>
+    <h1>Aspect Ratio Calculator</h1>
 
     <div>
-        <label>Enter one side of the ratio:</label>
-        <label for="inputWidth">Width:</label>
-        <input type="number" id="inputWidth" placeholder="Enter a number">
-        <label for="inputHeight">Height:</label>
-        <input type="number" id="inputHeight" placeholder="Enter a number">
+        <label>Enter one side of the aspect ratio:</label>
+        <label for="input">Input:</label>
+        <input type="number" id="input" placeholder="Enter a number">
+        <label for="inputIsWidth">Width</label>
+        <input type="radio" name="inputIs" id="inputIsWidth" value="Width" checked>
+        <label for="inputIsHeight">Height</label>
+        <input type="radio" name="inputIs" id="inputIsHeight" value="Height">
     </div>    
 
     <div>
         <label>Choose a target ratio:</label>
-        <input type="radio" name="ratioType" id="fourThreeRadio" value="4:3" checked>
         <label for="fourThreeRadio">16:9</label>
-        <input type="radio" name="ratioType" id="customRadio" value="custom">
+        <input type="radio" name="ratioType" id="fourThreeRadio" value="16:9" checked>
         <label for="customRadio">Custom</label>
+        <input type="radio" name="ratioType" id="customRadio" value="custom">        
         <div id="customRatioFields" style="display: none;">
-            <input type="number" id="customRatioNumerator" placeholder="Height">
-            <input type="number" id="customRatioDenominator" placeholder="Width">
+            <input type="number" id="customRatioWidth" placeholder="Width">
+            <input type="number" id="customRatioHeight" placeholder="Height">
         </div>
     </div>
 
@@ -40,8 +42,8 @@
         });
 
         document.getElementById("calculateButton").addEventListener("click", function () {
-            const inputHeight = parseFloat(document.getElementById("inputHeight").value);
-            const inputWidth = parseFloat(document.getElementById("inputWidth").value);
+            const input = parseFloat(document.getElementById("input").value);
+            const inputIsWidth = parseFloat(document.getElementById("inputIsWidth").checked);
             const customRatioNumerator = parseFloat(document.getElementById("customRatioNumerator").value);
             const customRatioDenominator = parseFloat(document.getElementById("customRatioDenominator").value);
 
