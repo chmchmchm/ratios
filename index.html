@@ -51,12 +51,11 @@
                 result = "Please enter only height or width, not both."
             } else {
                 inputRatio = inputHeight ?? inputWidth;
-            }
 
             if (isNaN(inputRatio)) {
                 result = "Please enter a valid number for the input ratio.";
             } else if (document.getElementById("customRadio").checked && (isNaN(customRatioNumerator) || isNaN(customRatioDenominator))) {
-                result = "Please enter valid numerator and denominator for the custom ratio.";
+                result = "Please enter valid height and width for the custom ratio.";
             } else {
                 let numerator, denominator;
 
@@ -70,6 +69,7 @@
 
                 const calculatedRatio = (inputRatio * denominator) / numerator;
                 result = `Result: ${inputRatio} : ${calculatedRatio}`;
+            }
             }
 
             document.getElementById("result").textContent = result;
