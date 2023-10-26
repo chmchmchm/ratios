@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sara's Ratio Converter</title>
+    <title>Sara's Ratio Calculator</title>
 </head>
 <body>
-    <h1>Ratio Converter</h1>
+    <h1>Ratio Calculator</h1>
 
-    <label for="inputRatio">Enter one side of the ratio:</label>
-    <input type="number" id="inputRatio" placeholder="Enter a number">
+    <div>
+        <label>Enter one side of the ratio:</label>
+        <label for="inputHeight">Height:</label>
+        <input type="number" id="inputHeight" placeholder="Enter a number">
+        <label for="inputWidth">Height:</label>
+        <input type="number" id="inputWidth" placeholder="Enter a number">
+    </div>    
 
     <div>
         <label>Choose a target ratio:</label>
@@ -16,8 +21,8 @@
         <input type="radio" name="ratioType" id="customRadio" value="custom">
         <label for="customRadio">Custom</label>
         <div id="customRatioFields" style="display: none;">
-            <input type="number" id="customRatioNumerator" placeholder="Numerator">
-            <input type="number" id="customRatioDenominator" placeholder="Denominator">
+            <input type="number" id="customRatioNumerator" placeholder="Height">
+            <input type="number" id="customRatioDenominator" placeholder="Width">
         </div>
     </div>
 
@@ -35,11 +40,18 @@
         });
 
         document.getElementById("calculateButton").addEventListener("click", function () {
-            const inputRatio = parseFloat(document.getElementById("inputRatio").value);
+            const inputHeight = parseFloat(document.getElementById("inputHeight").value);
+            const inputWidth = parseFloat(document.getElementById("inputWidth").value);
             const customRatioNumerator = parseFloat(document.getElementById("customRatioNumerator").value);
             const customRatioDenominator = parseFloat(document.getElementById("customRatioDenominator").value);
 
             let result = "";
+
+            if (inputHeight > 0 && inputWidth > 0) {
+                result = "Please enter only height or width, not both."
+            } else {
+                inputRatio = inputHeight ?? inputWidth;
+            }
 
             if (isNaN(inputRatio)) {
                 result = "Please enter a valid number for the input ratio.";
