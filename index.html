@@ -18,8 +18,8 @@
 
     <div>
         <label>Choose a target ratio:</label>
-        <label for="fourThreeRadio">16:9</label>
-        <input type="radio" name="ratioType" id="fourThreeRadio" value="16:9" checked>
+        <label for="sixteenNineRadio">16:9</label>
+        <input type="radio" name="ratioType" id="sixteenNineRadio" value="4:3" checked>
         <label for="customRadio">Custom</label>
         <input type="radio" name="ratioType" id="customRadio" value="custom">        
         <div id="customRatioFields" style="display: none;">
@@ -37,7 +37,7 @@
             document.getElementById("customRatioFields").style.display = "block";
         });
 
-        document.getElementById("fourThreeRadio").addEventListener("change", function () {
+        document.getElementById("sixteenNineRadio").addEventListener("change", function () {
             document.getElementById("customRatioFields").style.display = "none";
         });
 
@@ -56,9 +56,9 @@
             } else {
                 let targetWidth, targetHeight, calculatedSide;
 
-                if (document.getElementById("fourThreeRadio").checked) {
-                    targetWidth = 4;
-                    targetHeight = 3;
+                if (document.getElementById("sixteenNineRadio").checked) {
+                    targetWidth = 16;
+                    targetHeight = 9;
                 } else {
                     targetWidth = customRatioWidth;
                     targetHeight = customRatioHeight;
