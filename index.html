@@ -8,10 +8,10 @@
 
     <div>
         <label>Enter one side of the ratio:</label>
-        <label for="inputHeight">Height:</label>
-        <input type="number" id="inputHeight" placeholder="Enter a number">
         <label for="inputWidth">Width:</label>
         <input type="number" id="inputWidth" placeholder="Enter a number">
+        <label for="inputHeight">Height:</label>
+        <input type="number" id="inputHeight" placeholder="Enter a number">
     </div>    
 
     <div>
@@ -50,7 +50,11 @@
             if (inputHeight > 0 && inputWidth > 0) {
                 result = "Please enter only height or width, not both."
             } else {
-                inputRatio = inputHeight ?? inputWidth;
+                if (isNaN(inputHeight)) {
+                    inputRatio = inputWidth;
+                } else {
+                    inputRatio = inputHeight;
+                }
 
             if (isNaN(inputRatio)) {
                 result = "Please enter a valid number for the input ratio.";
